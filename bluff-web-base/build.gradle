@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group 'com.bluff'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":bluff-domain")
+
+    compile 'org.springframework.boot:spring-boot-starter-web'   //spring-boot-starter-tomcat 톰캣, spring-webmvc: 스프링 웹 mvc 포함
+    // webjars
+    compile "org.webjars:webjars-locator-core"
+    compile "org.webjars:bootstrap:3.3.7"
+    compile "org.webjars:jquery:2.2.4"
+    compile "org.webjars:jquery-validation:1.17.0"
+    compile "org.webjars:bootstrap-datepicker:1.7.1"
+    compile("org.webjars.bower:iCheck:1.0.2") {
+        exclude module: "jquery"
+    }
+    compile "org.webjars:html5shiv:3.7.3"
+    compile "org.webjars:respond:1.4.2"
+    compile "org.webjars:AdminLTE:2.3.8"
+    compile "org.webjars:font-awesome:4.7.0"
+    compile "org.webjars:ionicons:2.0.1"
+
+
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+ }
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group 'com.bluff'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":bluff-common")
+
+    // springframework
+    compile "org.springframework.boot:spring-boot-starter-aop"
+    compile "org.springframework.boot:spring-boot-starter-validation"
+//    compile "org.springframework.boot:spring-boot-starter-mail"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+//    compile 'jakarta.persistence:jakarta.persistence-api:2.2.1'
+//    compile "org.springframework.boot:spring-boot-starter-jdbc"
+
+
+    // Query 파라미터에 로그 남겨주는 외부 라이브러리, 실무에선 성능 테스트 필요. 
+    compile 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.7'
+    
+//    compile "org.springframework.boot:spring-boot-starter-json"
+
+    // thymeleaf
+    compile "org.codehaus.groovy:groovy:${groovyVersion}"
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.3.0") {
+        exclude group: "org.codehaus.groovy", module: "groovy"
+        exclude group: "org.thymeleaf", module: "thymeleaf"
+    }
+    
+    // mysql database
+    compile "mysql:mysql-connector-java"
+
+    runtimeOnly 'com.h2database:h2'
+    testCompile 'org.springframework.boot:spring-boot-starter-test' //테스트 
+}
+test {
+    useJUnitPlatform()
+}

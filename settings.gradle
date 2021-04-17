@@ -1,0 +1,6 @@
+rootProject.name = 'life-of-laughter'
+include 'bluff-common'
+include 'bluff-domain'
+include 'bluff-web-base'
+include 'bluff-web-admin'
+
